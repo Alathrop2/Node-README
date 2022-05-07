@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
+//! Create an array of questions for user input
 const questions = [
   {
     type: 'input',
@@ -36,9 +36,10 @@ const questions = [
     message: 'explain how to test this project',
   },
   {
-    type: 'input',
+    type: 'checkbox',
     name: 'license',
     message: 'what licenses does your project have?',
+    choices: ['Apache', 'Boost', 'MIT', 'None'],
   },
   {
     type: 'input',
@@ -52,14 +53,14 @@ const questions = [
   },
 ];
 
-// TODO: Create a function to write README file
+//! Create a function to write README file
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (err) => {
     if (err) throw err;
   });
 }
 
-// TODO: Create a function to initialize app
+//! Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
     console.log(answers);
@@ -79,11 +80,11 @@ init();
 // THEN this is displayed as the title of the README
 //! WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
 // THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-// todo WHEN I choose a license for my application from a list of options
+//! WHEN I choose a license for my application from a list of options
 // THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-//todo WHEN I enter my GitHub username
+//! WHEN I enter my GitHub username
 // THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-//todo WHEN I enter my email address
+//! WHEN I enter my email address
 // THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-// todo WHEN I click on the links in the Table of Contents
+//! WHEN I click on the links in the Table of Contents
 // THEN I am taken to the corresponding section of the README
